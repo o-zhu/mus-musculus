@@ -1,5 +1,5 @@
 # Make sure the directory has data.
-bug_data <- read_csv("./data/cole_arthropod_data_1946.csv")
+bug_data <- read_csv("./cole_arthropod_data_1946.csv")
 n = nrow(bug_data)
 # Question 1
 total_number = sum(bug_data$C_count_of_boards_with_k_spiders)
