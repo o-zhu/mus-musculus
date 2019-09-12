@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Make sure current working directory has data.
-=======
-# Make sure the directory has data.
->>>>>>> bb24dde36d51644b2b327e7218ef8485d179a4a5
 bug_data <- read_csv("./cole_arthropod_data_1946.csv")
 n = nrow(bug_data)
 
