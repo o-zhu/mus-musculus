@@ -1,23 +1,31 @@
 library(ggplot2)
 
 # Question 1
+#Load bug data from working directory. 
 bug_data <- read.csv("cole_arthropod_data_1946.csv")
-n = nrow(bug_data)
-total_number = sum(bug_data$C_count_of_boards_with_k_spiders)
-mean = mean(bug_data$C_count_of_boards_with_k_spiders)
+
+#Create variables for number of rows, total number of spiders under boards, and mean spider count.
+n <- nrow(bug_data)
+total_number <- sum(bug_data$C_count_of_boards_with_k_spiders)
+mean <- mean(bug_data$C_count_of_boards_with_k_spiders)
+
+#Make plot of spider counts
 ggplot() + 
   geom_point(aes(x = 1:n, y = (bug_data$C_count_of_boards_with_k_spiders)/total_number)) + 
   geom_line(aes(x = 1:n, y = (dpois(0:17,1/mean))), color = "red") + 
   scale_y_continuous(sec.axis = sec_axis(~.*total_number, name = "spider_data"))
 
 # Question 2
-total_number = sum(bug_data$C_count_of_boards_with_k_sowbugs)
-mean = mean(bug_data$C_count_of_boards_with_k_sowbugs)
+
+#Create variables for total number of sowbugs under boards, and mean sowbug count.
+total_number <- sum(bug_data$C_count_of_boards_with_k_sowbugs)
+mean <- mean(bug_data$C_count_of_boards_with_k_sowbugs)
+
+#Make plot of sowbug counts
 ggplot() + 
   geom_point(aes(x = 1:n, y = (bug_data$C_count_of_boards_with_k_sowbugs)/total_number)) + 
   geom_line(aes(x = 1:n, y = (dpois(0:17,1/mean))), color = "red") + 
   scale_y_continuous(sec.axis = sec_axis(~.*total_number, name = "sowbug_data"))
-
 
 #Question 3
 weevil_data <- read.csv("mitchell_weevil_egg_data_1975.csv")
