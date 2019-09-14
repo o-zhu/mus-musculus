@@ -1,0 +1,36 @@
+#Question 6
+#Aim: Add a curve to the weevil plot from question 3 showing the LGP distribution 
+
+
+#load the necessary libraries 
+#ggplot is used to generate plots in this exercise 
+#RMKdiscrete is used for the dLGP function to determine the LGP distribution 
+library(ggplot) 
+library(RMKdiscrete)
+
+#read the data 
+weevil_data <- read.csv("mitchell_weevil_egg_data_1975.csv")
+
+#set n() to be equivalent to the number of rows in the data set for subsequent code 
+n=nrow(weevil_data) 
+
+#pull out the count of beans with weevil eggs from the dataset 
+total_count <- sum(weevil_data$C_count_of_beans_with_k_eggs)
+
+
+#take the mean of the weevil egg counts
+avg <- mean(weevil_data$C_count_of_beans_with_k_eggs)
+
+#define lambda parameters 
+L2 <- 0.5 
+#this parameter chosen because it seems the organisms are over-dispersed 
+L1 <- ???
+
+#generate a plot of weevil data
+#The Poisson distribution is in red 
+#The LGP distribution is in blue 
+weevil_plot <- ggplot() + 
+geom_point(aes(x = 1:n, y = (weevil_data$C_count_of_beans_with_k_eggs)/total_count)) + xlab("# of weevil eggs) + ylab("Probability")
+geom_line(aes(x = 1:n, y = (dpois(0:17,1/avg))), color = "red") + 
+geom_line(aes(x = 1:n, y = (dLGP(0:17, L1, L2))), color = "blue") +
+scale_y_continuous(sec.axis = sec_axis(~.*total_count, name = "weevil eggs"))
