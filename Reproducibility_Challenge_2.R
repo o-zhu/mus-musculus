@@ -30,7 +30,7 @@ ggplot() +
 install.packages('RMKdiscrete')
 library(RMKdiscrete)
 
-l2 <- .53214 #tgus us the empirically determined lamba 2 value for sowbugs
+l2 <- .53214 #this is the empirically determined lamba 2 value for sowbugs
 l1 <- mean*(1-l2) #this formula is an estimate for lamba 1 of sowbugs based off the empirical lamba 2 
 
 #Pull out all the times within the data table that sowbugs were counted
