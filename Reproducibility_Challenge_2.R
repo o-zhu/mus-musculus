@@ -1,7 +1,7 @@
 # Make sure current working directory has data.
 bug_data <- read.csv("cole_arthropod_data_1946.csv")
 
-#make n() be equivalent to the number of rows in subsequent code
+# Make n() be equivalent to the number of rows in subsequent code.
 n = nrow(bug_data)
 
 library(ggplot2)
