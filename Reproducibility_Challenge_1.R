@@ -1,4 +1,4 @@
-#The purpose of question 1 is to plot the Poisson distribution with the same mean as the spider counts, while question 4 aims to add a curve to that plot showing the LGP distribution for the spider counts
+#The purpose of question 1 is to plot the Poisson distribution with the same mean as the spider counts, while question 4 aims to add a curve to that plot showing the LGP distribution for the spider counts.
 
 # Make sure current working directory has data.
 bug_data <- read_csv("./cole_arthropod_data_1946.csv")
